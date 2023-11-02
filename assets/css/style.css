@@ -1,0 +1,67 @@
+@charset "UTF-8";
+/* Variables */
+h1 {
+  color: green;
+  font-size: 13px;
+}
+
+h2 {
+  color: green;
+  font-size: 10px;
+}
+
+section {
+  font-size: 15px;
+}
+section p {
+  color: green;
+}
+
+/* transitions */
+a {
+  font-size: 30px;
+  text-decoration: none;
+  color: green;
+  /* transistion : tous les elements, durée, vitesse */
+  transition: all 3s linear;
+}
+
+a:hover {
+  color: blue;
+  font-size: 50px;
+}
+
+/* Animations */
+.carre {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  animation: 2s 0s 4 both aurelie2;
+}
+
+@keyframes aurelie {
+  from {
+    margin-left: 0;
+  }
+  to {
+    margin-left: 400px;
+  }
+}
+@keyframes aurelie2 {
+  0% {
+    margin-left: 0;
+    margin-top: 0;
+  }
+  25% {
+    margin-left: 400px;
+    margin-top: 0;
+  }
+  50% {
+    margin-left: 400px;
+    margin-top: 200px;
+  }
+  75% {
+    margin-left: 0px;
+    margin-top: 200px;
+  }
+}/*# sourceMappingURL=style.css.map */
