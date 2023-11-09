@@ -11,12 +11,15 @@
 	width: 100%; /* La navigation prend toute la largeur */
 	height: 80px; /* Hauteur fixe de la navigation */
 	display: flex; /* Applique flexbox à la barre de navigation */
-	justify-content: space-between; /* Positionne le titre et le bouton aux extrémités opposées */
+	justify-content: space-between; 
 	align-items: center;
   
 	.site-title {
 	  font-size: 21.5px; 
 	  text-align: center; /* Centre le texte du titre */
+	  position: absolute; /* Positionne absolument le titre */
+      left: 50%; /* Démarre le titre à 50% du parent */
+      transform: translateX(-50%); /* Décale le titre de -50% de sa propre largeur */
 	}
 	
 	.menu-toggle {
