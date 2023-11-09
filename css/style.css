@@ -1,0 +1,173 @@
+@charset "UTF-8";
+.banner {
+  position: relative;
+  background-image: url("../assets/images/banner.png");
+  min-height: 806px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -2;
+}
+
+.logo-header {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: auto;
+  height: auto;
+}
+
+#hero-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+#hero-header video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#background-video {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  #background-video {
+    display: none;
+  }
+}
+@media (min-width: 700px) {
+  #background-video {
+    display: block;
+  }
+}
+/* Styles pour la classe .loading-video */
+.loading-video {
+  width: 100%;
+  height: 806px;
+}
+
+#oscars {
+  height: 200px;
+  display: flex;
+  margin-top: 5%;
+  background-color: #FFF5E9;
+}
+
+h3 {
+  flex: 80%;
+  background: url("http://localhost/koukaki/wp-content/themes/foce-child/assets/images/orange_titreoscar_bg.png");
+  background-size: contain;
+  margin-right: 0;
+  margin-left: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: blue;
+}
+
+.oscar {
+  flex: 20%;
+  background-color: transparent;
+  align-items: flex-start;
+  margin-left: 0;
+  margin-right: 10%;
+}
+
+/* En-tête du site */
+.site-header {
+  position: sticky; /* Rend l'en-tête collant */
+  top: 0; /* Positionne l'en-tête en haut de la page */
+  z-index: 9999; /* S'assure que l'en-tête reste au-dessus des autres éléments */
+}
+
+/* Navigation principale */
+.main-navigation {
+  z-index: 1000; /* Définit l'ordre d'empilement de la navigation */
+  width: 100%; /* La navigation prend toute la largeur */
+  height: 80px; /* Hauteur fixe de la navigation */
+  display: flex; /* Applique flexbox à la barre de navigation */
+  justify-content: space-between; /* Positionne le titre et le bouton aux extrémités opposées */
+  align-items: center;
+  /* Lignes du bouton hamburger */
+  /* Liste de navigation (ul) */
+  /* Éléments de liste (li) */
+  /* CSS pour afficher la liste lorsque le menu est activé */
+}
+.main-navigation .site-title {
+  font-size: 21.5px;
+  text-align: center; /* Centre le texte du titre */
+}
+.main-navigation .menu-toggle {
+  display: block;
+  cursor: pointer; /* Indique que le bouton est cliquable */
+  margin-left: auto; /* Pousse le bouton du menu à l'extrême droite */
+}
+.main-navigation .menu-toggle.menu-opened .line {
+  background-color: transparent; /* Cache la ligne du milieu */
+}
+.main-navigation .menu-toggle.menu-opened .line:before, .main-navigation .menu-toggle.menu-opened .line:after {
+  position: absolute;
+  content: "";
+  height: 2px; /* Hauteur des barres de la croix */
+  width: 30px; /* Largeur des barres de la croix */
+  top: 50%;
+  margin-top: -1px; /* Centre les barres verticalement */
+  background-color: #000; /* Couleur des barres de la croix */
+}
+.main-navigation .menu-toggle.menu-opened .line:before {
+  transform: rotate(45deg); /* Incline la barre du haut pour former une croix */
+}
+.main-navigation .menu-toggle.menu-opened .line:after {
+  transform: rotate(-45deg); /* Incline la barre du bas pour former une croix */
+}
+.main-navigation .line {
+  width: 40px; /* Largeur de la ligne */
+  height: 1px; /* Hauteur de la ligne */
+  background-color: #000; /* Couleur de la ligne */
+  margin: 6px auto; /* Centre les lignes horizontalement et ajoute de l'espacement vertical */
+  display: block;
+}
+.main-navigation ul {
+  list-style: none; /* Pas de puces pour la liste */
+  display: none; /* Caché par défaut, affiché quand actif */
+}
+.main-navigation li {
+  font-family: "Roboto Mono", sans-serif;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 84px;
+  letter-spacing: 0em;
+  text-align: center;
+  position: relative; /* Position relative pour positionner les sous-éléments absolument si nécessaire */
+}
+.main-navigation.toggled ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Prend toute la largeur de l'écran */
+  position: absolute; /* Positionne le menu par-dessus les autres contenus */
+  top: 80px; /* Position sous la barre de navigation */
+  left: 0;
+  background-color: #fff; /* Couleur de fond pour le rendre visible */
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+/* Appliquez l'animation aux titres */
+.logo-header {
+  animation: floating 6s ease-in-out 0s infinite;
+}/*# sourceMappingURL=style.css.map */
