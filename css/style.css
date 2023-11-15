@@ -58,7 +58,6 @@
   background-color: #FFF5E9;
 }
 #oscars h3 {
-  overflow: hidden;
   background-image: url("../assets/images/orange_titreoscar_bg.png");
   width: 80%;
   margin-right: 0;
@@ -75,12 +74,13 @@
 }
 #oscars .oscar {
   width: 20%;
-  height: 2em;
+  height: 50%;
   background-color: transparent;
   align-items: flex-start;
   margin-left: 0;
   padding-left: 0;
   margin-right: 15em;
+  align-items: center;
 }
 
 /* En-tête du site */
