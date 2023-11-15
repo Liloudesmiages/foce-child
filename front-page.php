@@ -1,5 +1,4 @@
 <?php
-
 get_header();
 ?>
 <main id="primary" class="site-main">
@@ -10,7 +9,6 @@ get_header();
                 <source src="https://course.oc-static.com/projects/D%C3%A9veloppeur+Web/DWP+IW_P9+Studio+d'animation/Studio+Koukaki-vide%CC%81o+header+sans+son+(1).mp4" type="video/mp4">
             </video>
         </div>
-        
     </section>
     </div>
     </section>
@@ -73,11 +71,8 @@ get_header();
         </div>
     </section>
     <!-- ajout de l'article oscar -->
-    <?php get_template_part( 'template_parts/content', 'oscar' ); ?>
-     <!-- Lien vers le fichier JavaScript -->
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/script.js"></script>
-    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/navigation.js"></script>
-    
+    <?php get_template_part( 'template-parts/content-oscar' ); ?>
+
 </main><!-- #main -->
 
 <?php

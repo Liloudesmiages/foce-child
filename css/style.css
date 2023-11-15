@@ -57,106 +57,231 @@
   margin-top: 5%;
   background-color: #FFF5E9;
 }
-
-h3 {
-  flex: 80%;
-  background: url("http://localhost/koukaki/wp-content/themes/foce-child/assets/images/orange_titreoscar_bg.png");
-  background-size: contain;
+#oscars h3 {
+  overflow: hidden;
+  background-image: url("../assets/images/orange_titreoscar_bg.png");
+  width: 80%;
   margin-right: 0;
-  margin-left: 10%;
+  margin-left: 4em;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+  text-align: left;
   color: blue;
+  font-family: Quicksand;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 53px;
+  letter-spacing: -0.02em;
 }
-
-.oscar {
-  flex: 20%;
+#oscars .oscar {
+  width: 20%;
+  height: 2em;
   background-color: transparent;
   align-items: flex-start;
   margin-left: 0;
-  margin-right: 10%;
+  padding-left: 0;
+  margin-right: 15em;
 }
 
 /* En-tête du site */
 .site-header {
-  position: sticky; /* Rend l'en-tête collant */
-  top: 0; /* Positionne l'en-tête en haut de la page */
-  z-index: 9999; /* S'assure que l'en-tête reste au-dessus des autres éléments */
+  position: sticky;
+  /* Rend l'en-tête collant */
+  top: 0;
+  /* Positionne l'en-tête en haut de la page */
+  z-index: 3;
+  /* S'assure que l'en-tête reste au-dessus des autres éléments */
+  /* ajout button pour résoudre conflit avec Foce : augmentation de la spécificité */
 }
-
-/* Navigation principale */
-.main-navigation {
-  z-index: 1000; /* Définit l'ordre d'empilement de la navigation */
-  width: 100%; /* La navigation prend toute la largeur */
-  height: 80px; /* Hauteur fixe de la navigation */
-  display: flex; /* Applique flexbox à la barre de navigation */
-  justify-content: space-between;
-  align-items: center;
-  /* Lignes du bouton hamburger */
-  /* Liste de navigation (ul) */
-  /* Éléments de liste (li) */
-  /* CSS pour afficher la liste lorsque le menu est activé */
+.site-header .main-navigation {
+  /* CSS pour afficher la liste lorsque le menu est ouvert */
 }
-.main-navigation .site-title {
+.site-header .main-navigation .site-title {
   font-size: 21.5px;
-  text-align: center; /* Centre le texte du titre */
-  position: absolute; /* Positionne absolument le titre */
-  left: 50%; /* Démarre le titre à 50% du parent */
-  transform: translateX(-50%); /* Décale le titre de -50% de sa propre largeur */
+  text-align: center;
+  /* Centre le texte du titre */
+  position: absolute;
+  /* Positionne absolument le titre */
+  left: 50%;
+  /* Démarre le titre à 50% du parent */
+  transform: translateX(-50%);
+  /* Décale le titre de -50% de sa propre largeur */
 }
-.main-navigation .menu-toggle {
+.site-header .main-navigation button .menu-toggle {
   display: block;
-  cursor: pointer; /* Indique que le bouton est cliquable */
-  margin-left: auto; /* Pousse le bouton du menu à l'extrême droite */
+  cursor: pointer;
+  /* Indique que le bouton est cliquable */
+  margin-left: auto;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  /* Lignes du bouton hamburger */
+  /* CSS pour le bouton lorsqu'il est cliqué : X */
 }
-.main-navigation .menu-toggle.menu-opened .line {
-  background-color: transparent; /* Cache la ligne du milieu */
+.site-header .main-navigation button .menu-toggle .line {
+  width: 40px;
+  /* Largeur de la ligne */
+  height: 1px;
+  /* Hauteur de la ligne */
+  background-color: #000;
+  /* Couleur de la ligne */
+  margin: 6px auto;
+  /* Centre les lignes horizontalement et ajoute de l'espacement vertical */
+  display: block;
 }
-.main-navigation .menu-toggle.menu-opened .line:before, .main-navigation .menu-toggle.menu-opened .line:after {
+.site-header .main-navigation button .menu-toggle.menu-opened .line {
+  background-color: transparent;
+  /* Cache la ligne du milieu */
+}
+.site-header .main-navigation button .menu-toggle.menu-opened .line:before, .site-header .main-navigation button .menu-toggle.menu-opened .line:after {
   position: absolute;
   content: "";
-  height: 2px; /* Hauteur des barres de la croix */
-  width: 30px; /* Largeur des barres de la croix */
+  height: 1px;
+  /* Hauteur des barres de la croix */
+  width: 40px;
+  /* Largeur des barres de la croix */
   top: 50%;
-  margin-top: -1px; /* Centre les barres verticalement */
-  background-color: #000; /* Couleur des barres de la croix */
+  margin-top: -1px;
+  /* Centre les barres verticalement */
+  background-color: #000;
+  /* Couleur des barres de la croix */
 }
-.main-navigation .menu-toggle.menu-opened .line:before {
-  transform: rotate(45deg); /* Incline la barre du haut pour former une croix */
+.site-header .main-navigation button .menu-toggle.menu-opened .line:before {
+  transform: rotate(45deg);
+  /* Incline la barre du haut pour former une croix */
 }
-.main-navigation .menu-toggle.menu-opened .line:after {
-  transform: rotate(-45deg); /* Incline la barre du bas pour former une croix */
+.site-header .main-navigation button .menu-toggle.menu-opened .line:after {
+  transform: rotate(-45deg);
+  /* Incline la barre du bas pour former une croix */
 }
-.main-navigation .line {
-  width: 40px; /* Largeur de la ligne */
-  height: 1px; /* Hauteur de la ligne */
-  background-color: #000; /* Couleur de la ligne */
-  margin: 6px auto; /* Centre les lignes horizontalement et ajoute de l'espacement vertical */
-  display: block;
+.site-header .main-navigation .menu-content.toggled {
+  top: 80px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: #FFF5E9;
+  z-index: 4;
 }
-.main-navigation ul {
-  list-style: none; /* Pas de puces pour la liste */
-  display: none; /* Caché par défaut, affiché quand actif */
-}
-.main-navigation li {
-  font-family: "Roboto Mono", sans-serif;
-  font-size: 64px;
-  font-weight: 400;
-  line-height: 84px;
-  letter-spacing: 0em;
-  text-align: center;
-  position: relative; /* Position relative pour positionner les sous-éléments absolument si nécessaire */
-}
-.main-navigation.toggled ul {
+.site-header .main-navigation .menu-content.toggled .menu-liens {
   display: flex;
   flex-direction: column;
-  width: 100%; /* Prend toute la largeur de l'écran */
-  position: absolute; /* Positionne le menu par-dessus les autres contenus */
-  top: 80px; /* Position sous la barre de navigation */
-  left: 0;
-  background-color: #fff; /* Couleur de fond pour le rendre visible */
+  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+  height: 100%;
+  width: 100%;
+  background-color: #FFF5E9;
+}
+.site-header .main-navigation .menu-content.toggled .menu-liens .logo-header2 {
+  width: 10%;
+}
+.site-header .main-navigation .menu-content.toggled .menu-liens a:not(.studio-koukaki-fin):not(:has(> img)) {
+  font-family: "Roboto Mono", sans-serif;
+  font-size: 12vw;
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-align: center;
+  position: relative;
+}
+.site-header .main-navigation .menu-content.toggled .menu-liens a:not(.studio-koukaki-fin):not(:has(> img)):hover {
+  text-shadow: 0px 0px 8px red;
+  /* Halo rouge au survol */
+}
+.site-header .main-navigation .menu-content.toggled .menu-liens .studio-koukaki-fin {
+  font-family: "Roboto Mono", sans-serif;
+  font-size: 4vw;
+  font-weight: 300;
+  letter-spacing: 0em;
+  text-align: center;
+}
+.site-header .main-navigation .menu-content.toggled .menu-liens .studio-koukaki-fin:hover {
+  color: blue;
+  font-weight: 800;
+}
+.site-header .main-navigation .menu-elements .fleurs .fleur-violette {
+  position: absolute;
+  top: 30%;
+  left: -5%;
+  overflow: hidden;
+}
+.site-header .main-navigation .menu-elements .fleurs .fleurs-oranges {
+  position: absolute;
+  top: 55%;
+  left: 20%;
+}
+.site-header .main-navigation .menu-elements .fleurs .fleur-rose {
+  position: absolute;
+  top: 50%;
+  right: -2%;
+  overflow: hidden;
+}
+.site-header .main-navigation .menu-elements .fleurs .hibiscus {
+  position: absolute;
+  bottom: -50%;
+  right: -2%;
+  overflow: hidden;
+}
+.site-header .main-navigation .menu-elements .chats .chat-noir {
+  position: absolute;
+  top: 15%;
+  right: 15%;
+}
+.site-header .main-navigation .menu-elements .chats .chat-violet {
+  position: absolute;
+  top: 5%;
+  left: 25%;
+}
+.site-header .main-navigation .menu-elements .chats .chat-roux {
+  position: absolute;
+  top: 15%;
+  left: 7%;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Application de la rotation aux fleurs du menu*/
+.fleur-violette {
+  animation: rotation 30s linear infinite;
+}
+
+.fleurs-oranges {
+  animation: rotation 30s linear infinite;
+}
+
+.fleur-rose {
+  animation: rotation 30s linear infinite;
+}
+
+.hibiscus {
+  animation: rotation 30s linear infinite;
+}
+
+/* Application de la rotation aux fleurs de la page */
+#studio h2::after {
+  animation: rotation 30s linear infinite;
+  transform-origin: center;
+}
+
+#studio h2::before {
+  animation: rotation 10s linear infinite;
+  transform-origin: center;
+}
+
+.story h2::after {
+  animation: rotation 10s linear infinite;
+  transform-origin: center;
+}
+
+.story__article::after {
+  animation: rotation 30s linear infinite;
+  transform-origin: center;
 }
 
 @keyframes floating {
@@ -170,7 +295,11 @@ h3 {
     transform: translateY(0px);
   }
 }
-/* Appliquez l'animation aux titres */
+/* Application de l'animation aux titres */
 .logo-header {
+  animation: floating 6s ease-in-out 0s infinite;
+}
+
+.chats {
   animation: floating 6s ease-in-out 0s infinite;
 }/*# sourceMappingURL=style.css.map */

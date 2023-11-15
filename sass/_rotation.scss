@@ -1,0 +1,41 @@
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* Application de la rotation aux fleurs du menu*/
+.fleur-violette {
+    animation: rotation 30s linear infinite;
+}
+.fleurs-oranges {
+    animation: rotation 30s linear infinite;
+}
+.fleur-rose {
+    animation: rotation 30s linear infinite;
+}
+.hibiscus {
+    animation: rotation 30s linear infinite;
+}
+
+/* Application de la rotation aux fleurs de la page */
+
+#studio h2::after {
+    animation: rotation 30s linear infinite;
+    transform-origin: center;
+    } 
+#studio h2::before {
+    animation: rotation 10s linear infinite;
+    transform-origin: center;
+}
+.story h2::after {
+    animation: rotation 10s linear infinite;
+    transform-origin: center;
+}
+.story__article::after {
+animation: rotation 30s linear infinite;
+transform-origin: center;
+} 
+

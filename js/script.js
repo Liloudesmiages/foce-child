@@ -1,4 +1,4 @@
-//alert("fichier lié");
+//alert("fichier script lié");
 // Sélectionne la vidéo de fond
 const video = document.getElementById('background-video');
 //  const image = document.querySelector('.fallback'); 

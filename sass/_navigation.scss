@@ -1,95 +1,186 @@
 /* En-tête du site */
 .site-header {
-	position: sticky; /* Rend l'en-tête collant */
-	top: 0; /* Positionne l'en-tête en haut de la page */
-	z-index: 9999; /* S'assure que l'en-tête reste au-dessus des autres éléments */
-  }
-  
-  /* Navigation principale */
-  .main-navigation {
-	z-index: 1000; /* Définit l'ordre d'empilement de la navigation */
-	width: 100%; /* La navigation prend toute la largeur */
-	height: 80px; /* Hauteur fixe de la navigation */
-	display: flex; /* Applique flexbox à la barre de navigation */
-	justify-content: space-between; 
-	align-items: center;
-  
-	.site-title {
-	  font-size: 21.5px; 
-	  text-align: center; /* Centre le texte du titre */
-	  position: absolute; /* Positionne absolument le titre */
-      left: 50%; /* Démarre le titre à 50% du parent */
-      transform: translateX(-50%); /* Décale le titre de -50% de sa propre largeur */
-	}
-	
-	.menu-toggle {
-	  display: block;
-	  cursor: pointer; /* Indique que le bouton est cliquable */
-	  margin-left: auto; /* Pousse le bouton du menu à l'extrême droite */
-  
-	  &.menu-opened {
-		.line {
-		  background-color: transparent; /* Cache la ligne du milieu */
-  
-		  &:before,
-		  &:after {
-			position: absolute;
-			content: '';
-			height: 2px; /* Hauteur des barres de la croix */
-			width: 30px; /* Largeur des barres de la croix */
-			top: 50%;
-			margin-top: -1px; /* Centre les barres verticalement */
-			background-color: #000; /* Couleur des barres de la croix */
-		  }
-  
-		  &:before {
-			transform: rotate(45deg); /* Incline la barre du haut pour former une croix */
-		  }
-  
-		  &:after {
-			transform: rotate(-45deg); /* Incline la barre du bas pour former une croix */
-		  }
-		}
-	  }
-	}
-  
-	/* Lignes du bouton hamburger */
-	.line {
-	  width: 40px; /* Largeur de la ligne */
-	  height: 1px; /* Hauteur de la ligne */
-	  background-color: #000; /* Couleur de la ligne */
-	  margin: 6px auto; /* Centre les lignes horizontalement et ajoute de l'espacement vertical */
-	  display: block;
-	}
-  
-	/* Liste de navigation (ul) */
-	ul {
-	  list-style: none; /* Pas de puces pour la liste */
-	  display: none; /* Caché par défaut, affiché quand actif */
-	}
-  
-	/* Éléments de liste (li) */
-	li {
-	  font-family: 'Roboto Mono', sans-serif;
-	  font-size: 64px;
-	  font-weight: 400;
-	  line-height: 84px;
-	  letter-spacing: 0em;
-	  text-align: center;
-	  position: relative; /* Position relative pour positionner les sous-éléments absolument si nécessaire */
-	}
-  
-	/* CSS pour afficher la liste lorsque le menu est activé */
-	&.toggled {
-	  ul {
-		display: flex; 
-		flex-direction: column;
-		width: 100%; /* Prend toute la largeur de l'écran */
-		position: absolute; /* Positionne le menu par-dessus les autres contenus */
-		top: 80px; /* Position sous la barre de navigation */
-		left: 0;
-		background-color: #fff; /* Couleur de fond pour le rendre visible */
-	  }
-	}
-  }
-  
+    position: sticky;
+    /* Rend l'en-tête collant */
+    top: 0;
+    /* Positionne l'en-tête en haut de la page */
+    z-index: 3;
+    /* S'assure que l'en-tête reste au-dessus des autres éléments */
+
+
+    /* ajout button pour résoudre conflit avec Foce : augmentation de la spécificité */
+    .main-navigation {
+        .site-title {
+            font-size: 21.5px;
+            text-align: center;
+            /* Centre le texte du titre */
+            position: absolute;
+            /* Positionne absolument le titre */
+            left: 50%;
+            /* Démarre le titre à 50% du parent */
+            transform: translateX(-50%);
+            /* Décale le titre de -50% de sa propre largeur */
+        }
+
+        //ajout button pour résoudre conflit avec Foce
+        button .menu-toggle {
+            display: block;
+            cursor: pointer;
+            /* Indique que le bouton est cliquable */
+            margin-left: auto;
+            margin-right: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+
+            /* Lignes du bouton hamburger */
+            .line {
+                width: 40px;
+                /* Largeur de la ligne */
+                height: 1px;
+                /* Hauteur de la ligne */
+                background-color: #000;
+                /* Couleur de la ligne */
+                margin: 6px auto;
+                /* Centre les lignes horizontalement et ajoute de l'espacement vertical */
+                display: block;
+            }
+
+            /* CSS pour le bouton lorsqu'il est cliqué : X */
+            &.menu-opened {
+                .line {
+                    background-color: transparent;
+                    /* Cache la ligne du milieu */
+
+                    &:before,
+                    &:after {
+                        position: absolute;
+                        content: '';
+                        height: 1px;
+                        /* Hauteur des barres de la croix */
+                        width: 40px;
+                        /* Largeur des barres de la croix */
+                        top: 50%;
+                        margin-top: -1px;
+                        /* Centre les barres verticalement */
+                        background-color: #000;
+                        /* Couleur des barres de la croix */
+                    }
+
+                    &:before {
+                        transform: rotate(45deg);
+                        /* Incline la barre du haut pour former une croix */
+                    }
+
+                    &:after {
+                        transform: rotate(-45deg);
+                        /* Incline la barre du bas pour former une croix */
+                    }
+                }
+            }
+        }
+
+        /* CSS pour afficher la liste lorsque le menu est ouvert */
+    .menu-content.toggled {
+            top: 80px;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            background-color: #FFF5E9;
+            z-index: 4;
+
+            .menu-liens {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                justify-content: space-between;
+                align-items: center;
+                z-index: 5;
+                height: 100%;
+                width: 100%;
+                background-color: #FFF5E9;
+
+                .logo-header2 {
+                    width: 10%;
+                }
+
+                a:not(.studio-koukaki-fin):not(:has(> img)) {
+                    font-family: 'Roboto Mono', sans-serif;
+                    font-size: 12vw;
+                    font-weight: 400;
+                    letter-spacing: 0em;
+                    text-align: center;
+                    position: relative;
+
+                    &:hover {
+                        text-shadow: 0px 0px 8px red;
+                        /* Halo rouge au survol */
+                    }
+                }
+
+                .studio-koukaki-fin {
+                    font-family: 'Roboto Mono', sans-serif;
+                    font-size: 4vw;
+                    font-weight: 300;
+                    letter-spacing: 0em;
+                    text-align: center;
+
+                    &:hover {
+                        color: blue;
+                        font-weight: 800;
+                    }
+                }
+            }
+        }
+
+        .menu-elements {
+            .fleurs {
+                .fleur-violette {
+                    position: absolute;
+                    top: 30%;
+                    left: -5%;
+                    overflow: hidden;
+                }
+
+                .fleurs-oranges {
+                    position: absolute;
+                    top: 55%;
+                    left: 20%;
+                }
+
+                .fleur-rose {
+                    position: absolute;
+                    top: 50%;
+                    right: -2%;
+                    overflow: hidden;
+                }
+
+                .hibiscus {
+                    position: absolute;
+                    bottom: -50%;
+                    right: -2%;
+                    overflow: hidden;
+                }
+            }
+
+            .chats {
+                .chat-noir {
+                    position: absolute;
+                    top: 15%;
+                    right: 15%;
+                }
+
+                .chat-violet {
+                    position: absolute;
+                    top: 5%;
+                    left: 25%;
+                }
+
+                .chat-roux {
+                    position: absolute;
+                    top: 15%;
+                    left: 7%;
+                }
+            }
+        }
+    }
+}

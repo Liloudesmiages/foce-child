@@ -10,7 +10,10 @@
         transform: translateY(0px) ;
     }
 }
-/* Appliquez l'animation aux titres */
+/* Application de l'animation aux titres */
 .logo-header {
+    animation: floating 6s ease-in-out 0s infinite; 
+}
+.chats {
     animation: floating 6s ease-in-out 0s infinite; 
 }

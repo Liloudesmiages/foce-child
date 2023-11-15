@@ -63,29 +63,35 @@
   height: 200px;
   display: flex;
   margin-top: 5%;
-  background-color:#FFF5E9;
-  }   
+  background-color:#FFF5E9; 
 
   h3 {
-      flex: 80%;
-      background: url("http://localhost/koukaki/wp-content/themes/foce-child/assets/images/orange_titreoscar_bg.png");
-      background-size: contain;
+    overflow: hidden;
+    background-image: url("../assets/images/orange_titreoscar_bg.png");
+      width: 80%;
       margin-right: 0;
-      margin-left: 10%;
+      margin-left: 4em;
       display: flex;
       flex-wrap: wrap;
-      justify-content: flex-start;
-      align-items: flex-start;
+      text-align: left;
       color: blue;
+      font-family: Quicksand;
+font-size: 42px;
+font-weight: 700;
+line-height: 53px;
+letter-spacing: -0.02em;
   }
 
   .oscar {
-      flex: 20%;  
+      width: 20%; 
+      height: 2em;
       background-color: transparent;
       align-items: flex-start;
       margin-left: 0;
-      margin-right: 10%;
+      padding-left: 0;
+      margin-right: 15em;
   }
+}
 
 
   
