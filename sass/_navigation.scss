@@ -1,185 +1,187 @@
-/* En-tête du site */
-.site-header {
-    position: sticky;
-    /* Rend l'en-tête collant */
-    top: 0;
-    /* Positionne l'en-tête en haut de la page */
-    z-index: 3;
-    /* S'assure que l'en-tête reste au-dessus des autres éléments */
+/* ajout button pour résoudre conflit avec Foce : augmentation de la spécificité */
+.main-navigation {
+    width: 100%;
+    background: #FFD5A2;
+    
+    .site-title {
+        font-size: 21.5px;
+        text-align: center;
+        /* Centre le texte du titre */
+        position: fixed;
+        /* Positionne absolument le titre */
+        z-index: 11;
+        left: 50%;
+        /* Démarre le titre à 50% du parent */
+        transform: translateX(-50%);
+        /* Décale le titre de -50% de sa propre largeur */
+    }
 
+    // /ajout important! pour résoudre conflit avec Foce
+    @media screen and (min-width: 700px) {
+        .menu-toggle {
+            display: block !important;
+        }
+    }
 
-    /* ajout button pour résoudre conflit avec Foce : augmentation de la spécificité */
-    .main-navigation {
-        .site-title {
-            font-size: 21.5px;
-            text-align: center;
-            /* Centre le texte du titre */
-            position: absolute;
-            /* Positionne absolument le titre */
-            left: 50%;
-            /* Démarre le titre à 50% du parent */
-            transform: translateX(-50%);
-            /* Décale le titre de -50% de sa propre largeur */
+    .menu-toggle {
+        cursor: pointer;
+        /* Indique que le bouton est cliquable */
+        margin-right: 8%;
+        z-index: 11;
+
+        /* Lignes du bouton hamburger */
+        .line {
+            width: 40px;
+            /* Largeur de la ligne */
+            height: 1px;
+            /* Hauteur de la ligne */
+            background-color: #000;
+            /* Couleur de la ligne */
+            margin: 6px auto;
+            /* Centre les lignes horizontalement et ajoute de l'espacement vertical */
         }
 
-        //ajout button pour résoudre conflit avec Foce
-        button .menu-toggle {
-            display: block;
-            cursor: pointer;
-            /* Indique que le bouton est cliquable */
-            margin-left: auto;
-            margin-right: 0;
-            margin-top: 0;
-            margin-bottom: 0;
+        /* CSS pour le bouton lorsqu'il est cliqué : X */
+        &.menu-opened {
 
-            /* Lignes du bouton hamburger */
-            .line {
-                width: 40px;
-                /* Largeur de la ligne */
+            &:before,
+            &:after {
+                position: absolute;
+                content: '';
                 height: 1px;
-                /* Hauteur de la ligne */
+                /* Hauteur des barres de la croix */
+                width: 40px;
+                /* Largeur des barres de la croix */
+                top: 50%;
+                margin-top: -1px;
+                /* Centre les barres verticalement */
                 background-color: #000;
-                /* Couleur de la ligne */
-                margin: 6px auto;
-                /* Centre les lignes horizontalement et ajoute de l'espacement vertical */
-                display: block;
+                /* Couleur des barres de la croix */
             }
 
-            /* CSS pour le bouton lorsqu'il est cliqué : X */
-            &.menu-opened {
-                .line {
-                    background-color: transparent;
-                    /* Cache la ligne du milieu */
+            &:before {
+                transform: rotate(45deg);
+                /* Incline la barre du haut pour former une croix */
+            }
 
-                    &:before,
-                    &:after {
-                        position: absolute;
-                        content: '';
-                        height: 1px;
-                        /* Hauteur des barres de la croix */
-                        width: 40px;
-                        /* Largeur des barres de la croix */
-                        top: 50%;
-                        margin-top: -1px;
-                        /* Centre les barres verticalement */
-                        background-color: #000;
-                        /* Couleur des barres de la croix */
-                    }
+            &:after {
+                transform: rotate(-45deg);
+                /* Incline la barre du bas pour former une croix */
+            }
+        }
+    }
 
-                    &:before {
-                        transform: rotate(45deg);
-                        /* Incline la barre du haut pour former une croix */
-                    }
+    /* CSS pour afficher la liste lorsque le menu est ouvert */
+    #menu-content {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: #FFF5E9;
+        display: none; //cache le menu par défaut
+        overflow:auto;
 
-                    &:after {
-                        transform: rotate(-45deg);
-                        /* Incline la barre du bas pour former une croix */
-                    }
-                }
+        &.toggled {
+            display: flex; // Affiche le menu lorsque la classe 'toggled' est ajoutée
+        }
+    }
+
+    .menu-liens {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 20%;
+        gap: 4em;
+        z-index: 11;
+
+        a:not(.studio-koukaki-fin):not(:has(> img)) {
+            font-family: 'Roboto Mono', sans-serif;
+            font-size: 10vh;
+            font-weight: 400;
+            letter-spacing: 0em;
+            text-align: center;
+
+            &:hover {
+                text-shadow: 0px 0px 8px red;
+                /* Halo rouge au survol */
             }
         }
 
-        /* CSS pour afficher la liste lorsque le menu est ouvert */
-    .menu-content.toggled {
-            top: 80px;
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            background-color: #FFF5E9;
-            z-index: 4;
+        .studio-koukaki-fin {
+            font-family: 'Roboto Mono', sans-serif;
+            font-size: 1em;
+            font-weight: 300;
+            letter-spacing: 0em;
+            text-align: center;
+            margin-bottom: 1em;
+        
+            &:hover {
+                color: rgb(0, 221, 255);
+                font-weight: 900;
+            }
+        }
+    }
 
-            .menu-liens {
-                display: flex;
-                flex-direction: column;
-                gap: 30px;
-                justify-content: space-between;
-                align-items: center;
-                z-index: 5;
-                height: 100%;
-                width: 100%;
-                background-color: #FFF5E9;
+    .menu-elements {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
 
-                .logo-header2 {
-                    width: 10%;
-                }
+        .fleurs {
+            .fleur-violette {
+                position: absolute;
+                top: 15%;
+                left: -5%;
+                overflow: hidden;
+            }
 
-                a:not(.studio-koukaki-fin):not(:has(> img)) {
-                    font-family: 'Roboto Mono', sans-serif;
-                    font-size: 12vw;
-                    font-weight: 400;
-                    letter-spacing: 0em;
-                    text-align: center;
-                    position: relative;
+            .fleurs-oranges {
+                position: absolute;
+                top: 75%;
+                left: 10%;
+            }
 
-                    &:hover {
-                        text-shadow: 0px 0px 8px red;
-                        /* Halo rouge au survol */
-                    }
-                }
+            .fleur-rose {
+                position: absolute;
+                width: 5%;
+                top: 70%;
+                right: -5%;
+                overflow: hidden;
+            }
 
-                .studio-koukaki-fin {
-                    font-family: 'Roboto Mono', sans-serif;
-                    font-size: 4vw;
-                    font-weight: 300;
-                    letter-spacing: 0em;
-                    text-align: center;
-
-                    &:hover {
-                        color: blue;
-                        font-weight: 800;
-                    }
-                }
+            .hibiscus {
+                position: absolute;
+                width: 50%;
+                top: 110%;
+                left: 80%;
+                overflow: hidden;
+            }
+            .fleur-blanche {
+                position: absolute;
+                top: 20%;
+                right: 15%;
             }
         }
 
-        .menu-elements {
-            .fleurs {
-                .fleur-violette {
-                    position: absolute;
-                    top: 30%;
-                    left: -5%;
-                    overflow: hidden;
-                }
-
-                .fleurs-oranges {
-                    position: absolute;
-                    top: 55%;
-                    left: 20%;
-                }
-
-                .fleur-rose {
-                    position: absolute;
-                    top: 50%;
-                    right: -2%;
-                    overflow: hidden;
-                }
-
-                .hibiscus {
-                    position: absolute;
-                    bottom: -50%;
-                    right: -2%;
-                    overflow: hidden;
-                }
+        .chats {
+            .chat-noir {
+                position: absolute;
+                top: 85%;
+                right: 15%;
             }
 
-            .chats {
-                .chat-noir {
-                    position: absolute;
-                    top: 15%;
-                    right: 15%;
-                }
+            .chat-violet {
+                position: absolute;
+                top: 30%;
+                left: 18%;
+            }
 
-                .chat-violet {
-                    position: absolute;
-                    top: 5%;
-                    left: 25%;
-                }
-
-                .chat-roux {
-                    position: absolute;
-                    top: 15%;
-                    left: 7%;
-                }
+            .chat-roux {
+                position: absolute;
+                top: 98%;
+                left: 3%;
             }
         }
     }

@@ -77,48 +77,52 @@
   background-color: transparent;
   align-items: flex-start;
   margin-left: 0;
-  margin-top: 2em;
+  margin-top: 5em;
   padding-left: 0;
   margin-right: 15em;
   align-items: center;
 }
 
-/* En-tête du site */
-.site-header {
-  position: sticky;
-  /* Rend l'en-tête collant */
-  top: 0;
-  /* Positionne l'en-tête en haut de la page */
-  z-index: 3;
-  /* S'assure que l'en-tête reste au-dessus des autres éléments */
-  /* ajout button pour résoudre conflit avec Foce : augmentation de la spécificité */
-}
-.site-header .main-navigation {
+/*h2,h3 {
+    transform: translate(0, -110%);
+    transition: transform 1s ease-in-out; // Durée et type de transition
+
+    &:hover {
+        transform: translate(0, 0);
+    }
+}*/
+/* ajout button pour résoudre conflit avec Foce : augmentation de la spécificité */
+.main-navigation {
+  width: 100%;
+  background: #FFD5A2;
   /* CSS pour afficher la liste lorsque le menu est ouvert */
 }
-.site-header .main-navigation .site-title {
+.main-navigation .site-title {
   font-size: 21.5px;
   text-align: center;
   /* Centre le texte du titre */
-  position: absolute;
+  position: fixed;
   /* Positionne absolument le titre */
+  z-index: 11;
   left: 50%;
   /* Démarre le titre à 50% du parent */
   transform: translateX(-50%);
   /* Décale le titre de -50% de sa propre largeur */
 }
-.site-header .main-navigation button .menu-toggle {
-  display: block;
+@media screen and (min-width: 700px) {
+  .main-navigation .menu-toggle {
+    display: block !important;
+  }
+}
+.main-navigation .menu-toggle {
   cursor: pointer;
   /* Indique que le bouton est cliquable */
-  margin-left: auto;
-  margin-right: 0;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-right: 8%;
+  z-index: 11;
   /* Lignes du bouton hamburger */
   /* CSS pour le bouton lorsqu'il est cliqué : X */
 }
-.site-header .main-navigation button .menu-toggle .line {
+.main-navigation .menu-toggle .line {
   width: 40px;
   /* Largeur de la ligne */
   height: 1px;
@@ -127,13 +131,8 @@
   /* Couleur de la ligne */
   margin: 6px auto;
   /* Centre les lignes horizontalement et ajoute de l'espacement vertical */
-  display: block;
 }
-.site-header .main-navigation button .menu-toggle.menu-opened .line {
-  background-color: transparent;
-  /* Cache la ligne du milieu */
-}
-.site-header .main-navigation button .menu-toggle.menu-opened .line:before, .site-header .main-navigation button .menu-toggle.menu-opened .line:after {
+.main-navigation .menu-toggle.menu-opened:before, .main-navigation .menu-toggle.menu-opened:after {
   position: absolute;
   content: "";
   height: 1px;
@@ -146,96 +145,108 @@
   background-color: #000;
   /* Couleur des barres de la croix */
 }
-.site-header .main-navigation button .menu-toggle.menu-opened .line:before {
+.main-navigation .menu-toggle.menu-opened:before {
   transform: rotate(45deg);
   /* Incline la barre du haut pour former une croix */
 }
-.site-header .main-navigation button .menu-toggle.menu-opened .line:after {
+.main-navigation .menu-toggle.menu-opened:after {
   transform: rotate(-45deg);
   /* Incline la barre du bas pour former une croix */
 }
-.site-header .main-navigation .menu-content.toggled {
-  top: 80px;
-  height: 100%;
+.main-navigation #menu-content {
+  position: fixed;
   width: 100%;
-  position: absolute;
-  background-color: #FFF5E9;
-  z-index: 4;
+  height: 100%;
+  background: #FFF5E9;
+  display: none;
+  overflow: auto;
 }
-.site-header .main-navigation .menu-content.toggled .menu-liens {
+.main-navigation #menu-content.toggled {
+  display: flex;
+}
+.main-navigation .menu-liens {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  z-index: 5;
-  height: 100%;
-  width: 100%;
-  background-color: #FFF5E9;
+  margin-top: 20%;
+  gap: 4em;
+  z-index: 11;
 }
-.site-header .main-navigation .menu-content.toggled .menu-liens .logo-header2 {
-  width: 10%;
-}
-.site-header .main-navigation .menu-content.toggled .menu-liens a:not(.studio-koukaki-fin):not(:has(> img)) {
+.main-navigation .menu-liens a:not(.studio-koukaki-fin):not(:has(> img)) {
   font-family: "Roboto Mono", sans-serif;
-  font-size: 12vw;
+  font-size: 10vh;
   font-weight: 400;
   letter-spacing: 0em;
   text-align: center;
-  position: relative;
 }
-.site-header .main-navigation .menu-content.toggled .menu-liens a:not(.studio-koukaki-fin):not(:has(> img)):hover {
+.main-navigation .menu-liens a:not(.studio-koukaki-fin):not(:has(> img)):hover {
   text-shadow: 0px 0px 8px red;
   /* Halo rouge au survol */
 }
-.site-header .main-navigation .menu-content.toggled .menu-liens .studio-koukaki-fin {
+.main-navigation .menu-liens .studio-koukaki-fin {
   font-family: "Roboto Mono", sans-serif;
-  font-size: 4vw;
+  font-size: 1em;
   font-weight: 300;
   letter-spacing: 0em;
   text-align: center;
+  margin-bottom: 1em;
 }
-.site-header .main-navigation .menu-content.toggled .menu-liens .studio-koukaki-fin:hover {
-  color: blue;
-  font-weight: 800;
+.main-navigation .menu-liens .studio-koukaki-fin:hover {
+  color: rgb(0, 221, 255);
+  font-weight: 900;
 }
-.site-header .main-navigation .menu-elements .fleurs .fleur-violette {
+.main-navigation .menu-elements {
   position: absolute;
-  top: 30%;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.main-navigation .menu-elements .fleurs .fleur-violette {
+  position: absolute;
+  top: 15%;
   left: -5%;
   overflow: hidden;
 }
-.site-header .main-navigation .menu-elements .fleurs .fleurs-oranges {
+.main-navigation .menu-elements .fleurs .fleurs-oranges {
   position: absolute;
-  top: 55%;
-  left: 20%;
+  top: 75%;
+  left: 10%;
 }
-.site-header .main-navigation .menu-elements .fleurs .fleur-rose {
+.main-navigation .menu-elements .fleurs .fleur-rose {
   position: absolute;
-  top: 50%;
-  right: -2%;
+  width: 5%;
+  top: 70%;
+  right: -5%;
   overflow: hidden;
 }
-.site-header .main-navigation .menu-elements .fleurs .hibiscus {
+.main-navigation .menu-elements .fleurs .hibiscus {
   position: absolute;
-  bottom: -50%;
-  right: -2%;
+  width: 50%;
+  top: 110%;
+  left: 80%;
   overflow: hidden;
 }
-.site-header .main-navigation .menu-elements .chats .chat-noir {
+.main-navigation .menu-elements .fleurs .fleur-blanche {
   position: absolute;
-  top: 15%;
+  top: 20%;
   right: 15%;
 }
-.site-header .main-navigation .menu-elements .chats .chat-violet {
+.main-navigation .menu-elements .chats .chat-noir {
   position: absolute;
-  top: 5%;
-  left: 25%;
+  top: 85%;
+  right: 15%;
 }
-.site-header .main-navigation .menu-elements .chats .chat-roux {
+.main-navigation .menu-elements .chats .chat-violet {
   position: absolute;
-  top: 15%;
-  left: 7%;
+  top: 30%;
+  left: 18%;
+}
+.main-navigation .menu-elements .chats .chat-roux {
+  position: absolute;
+  top: 98%;
+  left: 3%;
 }
 
 @keyframes rotation {
@@ -260,6 +271,10 @@
 }
 
 .hibiscus {
+  animation: rotation 30s linear infinite;
+}
+
+.fleur-blanche {
   animation: rotation 30s linear infinite;
 }
 
@@ -300,6 +315,14 @@
   animation: floating 6s ease-in-out 0s infinite;
 }
 
-.chats {
+.chat-noir {
+  animation: floating 6s ease-in-out 0s infinite;
+}
+
+.chat-violet {
+  animation: floating 6s ease-in-out 0s infinite;
+}
+
+.chat-roux {
   animation: floating 6s ease-in-out 0s infinite;
 }/*# sourceMappingURL=style.css.map */
