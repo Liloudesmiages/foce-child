@@ -1,4 +1,5 @@
 //alert("fichier script lié");
+document.addEventListener('DOMContentLoaded', function () {
 // Sélectionne la vidéo de fond
 const video = document.getElementById('background-video');
 //  const image = document.querySelector('.fallback'); 
@@ -21,3 +22,13 @@ window.addEventListener('load', checkMediaQuery);
 // Exécute checkMediaQuery lors du redimensionnement de la fenêtre
 window.addEventListener('resize', checkMediaQuery);
 
+//Coverflow-effect parameters.
+const swiper = new Swiper('.swiper', {
+  effect: 'coverflow',
+  coverflowEffect: {
+    rotate: 30,
+    slideShadows: false,
+  },
+loop:true,
+});
+});

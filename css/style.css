@@ -1,15 +1,34 @@
 @charset "UTF-8";
-@keyframes titre {
-  0% {
-    transform: translateY(-10%);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  50% {
-    transform: translateY(-15px);
-  }
-  100% {
-    transform: translateY(0px);
+  to {
+    opacity: 1;
   }
 }
+/* Application du fade in au menu*/
+#menu-content.toggled {
+  display: flex;
+  animation: fadeIn 2s ease forwards;
+}
+
+.story {
+  animation: fadeIn 2s ease forwards;
+}
+
+.main-character {
+  animation: fadeIn 2s ease forwards;
+}
+
+#place {
+  animation: fadeIn 2s ease forwards;
+}
+
+#studio {
+  animation: fadeIn 2s ease forwards;
+}
+
 .banner {
   position: relative;
   background-image: url("../assets/images/banner.png");
@@ -94,14 +113,23 @@
   align-items: center;
 }
 
-/*h2,h3 {
-    transform: translate(0, -110%);
-    transition: transform 1s ease-in-out; // Durée et type de transition
+/*h3 {
+    background-attachment: fixed; 
+    transform: translateY(-110%);
+    transition: transform 1s ease-in-out; 
+}
 
     &:hover {
-        transform: translate(0, 0);
-    }
-}*/
+        transform: translateY(0);
+}
+*/
+.swiper {
+  width: 100%;
+}
+.swiper .slide {
+  background: #FFF5E9;
+}
+
 /* ajout button pour résoudre conflit avec Foce : augmentation de la spécificité */
 .main-navigation {
   width: 100%;
@@ -165,11 +193,11 @@
   /* Incline la barre du bas pour former une croix */
 }
 .main-navigation #menu-content {
+  display: none;
   position: fixed;
   width: 100%;
   height: 100%;
   background: #FFF5E9;
-  display: none;
   overflow: auto;
 }
 .main-navigation #menu-content.toggled {
@@ -202,7 +230,7 @@
   font-weight: 300;
   letter-spacing: 0em;
   text-align: center;
-  margin-bottom: 1em;
+  padding-top: 10em;
 }
 .main-navigation .menu-liens .studio-koukaki-fin:hover {
   color: rgb(0, 221, 255);
@@ -256,7 +284,7 @@
 }
 .main-navigation .menu-elements .chats .chat-roux {
   position: absolute;
-  top: 98%;
+  top: 120%;
   left: 3%;
 }
 

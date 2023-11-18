@@ -2,7 +2,7 @@
 .main-navigation {
     width: 100%;
     background: #FFD5A2;
-    
+
     .site-title {
         font-size: 21.5px;
         text-align: center;
@@ -73,15 +73,15 @@
 
     /* CSS pour afficher la liste lorsque le menu est ouvert */
     #menu-content {
+        display: none;
         position: fixed;
         width: 100%;
         height: 100%;
         background: #FFF5E9;
-        display: none; //cache le menu par défaut
-        overflow:auto;
+        overflow: auto;
 
         &.toggled {
-            display: flex; // Affiche le menu lorsque la classe 'toggled' est ajoutée
+            display: flex;
         }
     }
 
@@ -114,8 +114,8 @@
             font-weight: 300;
             letter-spacing: 0em;
             text-align: center;
-            margin-bottom: 1em;
-        
+            padding-top: 10em;
+
             &:hover {
                 color: rgb(0, 221, 255);
                 font-weight: 900;
@@ -158,6 +158,7 @@
                 left: 80%;
                 overflow: hidden;
             }
+
             .fleur-blanche {
                 position: absolute;
                 top: 20%;
@@ -180,7 +181,7 @@
 
             .chat-roux {
                 position: absolute;
-                top: 98%;
+                top: 120%;
                 left: 3%;
             }
         }

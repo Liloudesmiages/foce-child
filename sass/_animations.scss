@@ -1,11 +1,23 @@
-@keyframes titre {
-    0%{
-        transform: translateY(-10%);
-    }
-    50%{
-        transform: translateY(-15px);
-    }
-    100%{
-        transform: translateY(0px) ;
-    }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
+/* Application du fade in au menu*/
+#menu-content.toggled {
+    display: flex;
+    animation: fadeIn 2s ease forwards;
+}
+
+.story { 
+    animation: fadeIn 2s ease forwards;
+}
+.main-character { 
+    animation: fadeIn 2s ease forwards;
+}
+#place { 
+    animation: fadeIn 2s ease forwards;
+}
+#studio { 
+    animation: fadeIn 2s ease forwards;
+}
+

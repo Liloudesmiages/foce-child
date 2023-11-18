@@ -87,21 +87,32 @@
       background-color: transparent;
       align-items: flex-start;
       margin-left: 0;
-      margin-top:5em;
+      margin-top: 5em;
       padding-left: 0;
       margin-right: 15em;
       align-items: center;
   }
 }
 
-/*h2,h3 {
-    transform: translate(0, -110%);
-    transition: transform 1s ease-in-out; // Durée et type de transition
-
+/*h3 {
+    background-attachment: fixed; 
+    transform: translateY(-110%);
+    transition: transform 1s ease-in-out; 
+}
+   
     &:hover {
-        transform: translate(0, 0);
-    }
-}*/
+        transform: translateY(0);
+}
+*/
+
+//swiper
+.swiper {
+  width: 100%;
+
+  .slide {
+    background: #FFF5E9;
+  }
+}
 
 
   
