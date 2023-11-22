@@ -2,23 +2,29 @@
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
 }
+
 /* Application de la rotation aux fleurs du menu*/
 .fleur-violette {
     animation: rotation 30s linear infinite;
 }
+
 .fleurs-oranges {
     animation: rotation 30s linear infinite;
 }
+
 .fleur-rose {
     animation: rotation 30s linear infinite;
 }
+
 .hibiscus {
     animation: rotation 30s linear infinite;
 }
+
 .fleur-blanche {
     animation: rotation 30s linear infinite;
 }
@@ -28,17 +34,76 @@
 #studio h2::after {
     animation: rotation 30s linear infinite;
     transform-origin: center;
-    } 
-#studio h2::before {
-    animation: rotation 10s linear infinite;
-    transform-origin: center;
 }
-.story h2::after {
-    animation: rotation 10s linear infinite;
-    transform-origin: center;
-}
-.story__article::after {
-animation: rotation 30s linear infinite;
-transform-origin: center;
-} 
 
+#studio h2::before {
+    animation: rotation 30s linear infinite;
+    transform-origin: center;
+}
+
+.story h2::after {
+    animation: rotation 30s linear infinite;
+    transform-origin: center;
+}
+
+.story__article::after {
+    animation: rotation 30s linear infinite;
+    transform-origin: center;
+}
+
+#oscars::before {
+    animation: rotation 30s linear infinite;
+    transform-origin: center;
+}
+
+#oscars::after {
+    animation: rotation 30s linear infinite;
+    transform-origin: center;
+}
+
+@keyframes rotation2 {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Application de la rotation aux fleurs de la page */
+#studio.rotation2 h2::after {
+    animation: rotation2 5s linear 0s 1;
+    transform-origin: center;
+    animation-delay: 1s;
+}
+
+#studio.rotation2 h2::before {
+    animation: rotation2 5s linear 0s 1;
+    transform-origin: center;
+    animation-delay: 1s;
+}
+
+#story.rotation2 .story h2::after {
+    animation: rotation2 5s linear 0s 1;
+    transform-origin: center;
+    animation-delay: 1s;
+}
+
+#story.rotation2 .story__article::after {
+    animation: rotation2 5s linear 0s 1;
+    transform-origin: center;
+    animation-delay: 1s;
+}
+
+#oscars.rotation2::before {
+    animation: rotation2 5s linear 0s 1;
+    transform-origin: center;
+    animation-delay: 1s;
+}
+
+#oscars.rotation2::after {
+    animation: rotation2 5s linear 0s 1;
+    transform-origin: center;
+    animation-delay: 1s;
+}

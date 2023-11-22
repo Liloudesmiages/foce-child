@@ -2,9 +2,11 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(-80px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 /* Application du fade in au menu*/
@@ -27,6 +29,57 @@
 
 #studio {
   animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes translate1 {
+  from {
+    transform: translateY(100px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+h2.anim, h3.anim {
+  animation: 2s fadeIn2 ease forwards;
+  animation-fill-mode: both;
+  animation-delay: 0.3s;
+  overflow: hidden;
+}
+
+h2.anim span:first-child,
+h3.anim span:first-child {
+  animation: 1s translate1 ease forwards;
+  animation-fill-mode: both;
+  animation-delay: 0.45s;
+  display: inline-block;
+}
+
+h2.anim span:last-child,
+h3.anim span:last-child {
+  animation: 1s translate1 ease forwards;
+  animation-fill-mode: both;
+  animation-delay: 0.6s;
+  display: inline-block;
+}
+
+@keyframes animationnuages {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(300px);
+  }
+}
+.nuages {
+  animation: animationnuages 4s 1 linear forwards;
 }
 
 .banner {
@@ -83,22 +136,38 @@
 
 #oscars {
   display: flex;
+  position: relative;
   margin-top: 5%;
   background-color: #FFF5E9;
+}
+#oscars::before {
+  content: url("../assets/images/fleurblanche.png");
+  position: absolute;
+  left: 10em;
+  top: -4em;
+}
+#oscars::after {
+  content: url("../assets/images/orchid.png");
+  position: absolute;
+  right: -4em;
+  top: -9em;
 }
 #oscars h3 {
   width: 80%;
   margin-top: 1em;
+  margin-bottom: 2em;
   margin-right: 0;
-  margin-left: 3em;
+  margin-left: 4em;
+  padding: 1em 2em;
   display: flex;
   flex-wrap: wrap;
   text-align: left;
   color: #FFF5E9;
   font-family: Quicksand;
+  font-size: 3em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   background-image: url("../assets/images/orange_titreoscar_bg.png");
-  background-size: cover;
+  background-size: 93%;
   background-position: center;
 }
 #oscars .oscar {
@@ -111,6 +180,16 @@
   padding-left: 0;
   margin-right: 15em;
   align-items: center;
+}
+
+.story #place {
+  display: flex;
+  background-image: url("../assets/images/place_bg.png");
+}
+.story #place .nuages {
+  position: absolute;
+  top: 5%;
+  left: 30%;
 }
 
 /*h3 {
@@ -130,16 +209,24 @@
   background: #FFF5E9;
 }
 
-/* ajout button pour résoudre conflit avec Foce : augmentation de la spécificité */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
 .main-navigation {
+  position: sticky;
   width: 100%;
+  height: 80px;
   background: #FFD5A2;
-  /* CSS pour afficher la liste lorsque le menu est ouvert */
+  z-index: 1000 !important;
+  display: block;
 }
 .main-navigation .site-title {
   font-size: 21.5px;
   text-align: center;
-  /* Centre le texte du titre */
+  padding-bottom: 5em;
   position: fixed;
   /* Positionne absolument le titre */
   z-index: 11;
@@ -163,13 +250,12 @@
 }
 .main-navigation .menu-toggle .line {
   width: 40px;
-  /* Largeur de la ligne */
   height: 1px;
-  /* Hauteur de la ligne */
   background-color: #000;
-  /* Couleur de la ligne */
   margin: 6px auto;
-  /* Centre les lignes horizontalement et ajoute de l'espacement vertical */
+}
+.main-navigation .menu-toggle.menu-opened {
+  z-index: 11;
 }
 .main-navigation .menu-toggle.menu-opened:before, .main-navigation .menu-toggle.menu-opened:after {
   position: absolute;
@@ -192,7 +278,9 @@
   transform: rotate(-45deg);
   /* Incline la barre du bas pour former une croix */
 }
-.main-navigation #menu-content {
+
+/* CSS pour afficher la liste lorsque le menu est ouvert */
+#menu-content {
   display: none;
   position: fixed;
   width: 100%;
@@ -200,31 +288,32 @@
   background: #FFF5E9;
   overflow: auto;
 }
-.main-navigation #menu-content.toggled {
+#menu-content.toggled {
   display: flex;
 }
-.main-navigation .menu-liens {
+
+.menu-liens {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin-top: 20%;
+  margin-top: 35%;
   gap: 4em;
   z-index: 11;
 }
-.main-navigation .menu-liens a:not(.studio-koukaki-fin):not(:has(> img)) {
+.menu-liens a:not(.studio-koukaki-fin):not(:has(> img)) {
   font-family: "Roboto Mono", sans-serif;
-  font-size: 10vh;
+  font-size: 5em;
   font-weight: 400;
   letter-spacing: 0em;
   text-align: center;
 }
-.main-navigation .menu-liens a:not(.studio-koukaki-fin):not(:has(> img)):hover {
+.menu-liens a:not(.studio-koukaki-fin):not(:has(> img)):hover {
   text-shadow: 0px 0px 8px red;
   /* Halo rouge au survol */
 }
-.main-navigation .menu-liens .studio-koukaki-fin {
+.menu-liens .studio-koukaki-fin {
   font-family: "Roboto Mono", sans-serif;
   font-size: 1em;
   font-weight: 300;
@@ -232,60 +321,69 @@
   text-align: center;
   padding-top: 10em;
 }
-.main-navigation .menu-liens .studio-koukaki-fin:hover {
+.menu-liens .studio-koukaki-fin:hover {
   color: rgb(0, 221, 255);
   font-weight: 900;
 }
-.main-navigation .menu-elements {
+
+.menu-elements {
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 10;
 }
-.main-navigation .menu-elements .fleurs .fleur-violette {
+.menu-elements .fleurs .fleur-violette {
   position: absolute;
-  top: 15%;
+  top: 25%;
   left: -5%;
   overflow: hidden;
 }
-.main-navigation .menu-elements .fleurs .fleurs-oranges {
+.menu-elements .fleurs .fleurs-oranges {
   position: absolute;
-  top: 75%;
+  top: 85%;
   left: 10%;
 }
-.main-navigation .menu-elements .fleurs .fleur-rose {
+.menu-elements .fleurs .fleur-rose {
   position: absolute;
   width: 5%;
-  top: 70%;
+  top: 80%;
   right: -5%;
   overflow: hidden;
 }
-.main-navigation .menu-elements .fleurs .hibiscus {
+.menu-elements .fleurs .hibiscus {
   position: absolute;
   width: 50%;
-  top: 110%;
+  top: 120%;
   left: 80%;
   overflow: hidden;
 }
-.main-navigation .menu-elements .fleurs .fleur-blanche {
-  position: absolute;
-  top: 20%;
-  right: 15%;
-}
-.main-navigation .menu-elements .chats .chat-noir {
-  position: absolute;
-  top: 85%;
-  right: 15%;
-}
-.main-navigation .menu-elements .chats .chat-violet {
+.menu-elements .fleurs .fleur-blanche {
   position: absolute;
   top: 30%;
+  right: 15%;
+}
+.menu-elements .chats .chat-noir {
+  position: absolute;
+  top: 95%;
+  right: 15%;
+}
+.menu-elements .chats .chat-violet {
+  position: absolute;
+  top: 40%;
   left: 18%;
 }
-.main-navigation .menu-elements .chats .chat-roux {
+.menu-elements .chats .chat-roux {
   position: absolute;
-  top: 120%;
+  top: 130%;
   left: 3%;
+}
+
+.main-navigation .menu-opened .line {
+  visibility: hidden;
+}
+
+#site-navigation .main-navigation {
+  height: 80px;
 }
 
 @keyframes rotation {
@@ -324,18 +422,116 @@
 }
 
 #studio h2::before {
-  animation: rotation 10s linear infinite;
+  animation: rotation 30s linear infinite;
   transform-origin: center;
 }
 
 .story h2::after {
-  animation: rotation 10s linear infinite;
+  animation: rotation 30s linear infinite;
   transform-origin: center;
 }
 
 .story__article::after {
   animation: rotation 30s linear infinite;
   transform-origin: center;
+}
+
+#oscars::before {
+  animation: rotation 30s linear infinite;
+  transform-origin: center;
+}
+
+#oscars::after {
+  animation: rotation 30s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes rotation2 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Application de la rotation aux fleurs de la page */
+#studio.rotation2 h2::after {
+  animation: rotation2 5s linear 0s 1;
+  transform-origin: center;
+  animation-delay: 1s;
+}
+
+#studio.rotation2 h2::before {
+  animation: rotation2 5s linear 0s 1;
+  transform-origin: center;
+  animation-delay: 1s;
+}
+
+#story.rotation2 .story h2::after {
+  animation: rotation2 5s linear 0s 1;
+  transform-origin: center;
+  animation-delay: 1s;
+}
+
+#story.rotation2 .story__article::after {
+  animation: rotation2 5s linear 0s 1;
+  transform-origin: center;
+  animation-delay: 1s;
+}
+
+#oscars.rotation2::before {
+  animation: rotation2 5s linear 0s 1;
+  transform-origin: center;
+  animation-delay: 1s;
+}
+
+#oscars.rotation2::after {
+  animation: rotation2 5s linear 0s 1;
+  transform-origin: center;
+  animation-delay: 1s;
+}
+
+.site-footer {
+  position: relative;
+  display: flex;
+  padding-top: 18em;
+  padding-bottom: 1em;
+  overflow: hidden;
+}
+.site-footer::before {
+  display: none;
+  content: url("./assets/images/Sunflower.png");
+  position: absolute;
+  left: 4em;
+  top: 0em;
+}
+.site-footer::after {
+  display: none;
+  content: url("./assets/images/orchid.png");
+  position: absolute;
+  right: -4em;
+  bottom: 7.8em;
+}
+.site-footer ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100%;
+  list-style-type: none;
+}
+.site-footer ul li {
+  flex: 1;
+  text-align: center;
+}
+.site-footer ul li a {
+  text-decoration: none;
+}
+.site-footer ul::after {
+  content: url("../assets/images/hibiscus_footer.png");
+  position: absolute;
+  left: calc(50% - 323px);
+  bottom: -28.5em;
+  z-index: -1;
 }
 
 @keyframes floating {

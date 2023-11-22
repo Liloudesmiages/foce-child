@@ -1,6 +1,10 @@
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0;
+        transform: translateY(-80px) ;
+     }
+    to { opacity: 1;
+        transform: translateY(0) ;
+     }
 }
 /* Application du fade in au menu*/
 #menu-content.toggled {
@@ -21,3 +25,48 @@
     animation: fadeIn 2s ease forwards;
 }
 
+//animation titres
+@keyframes fadeIn2 {
+    from { opacity: 0;     }
+    to { opacity: 1;     }
+}
+
+
+@keyframes translate1 {
+    from { transform: translateY(100px) ;  }
+    to { transform: translateY(0) ; }
+}
+h2.anim, h3.anim {
+    animation:  2s fadeIn2 ease forwards;
+    animation-fill-mode: both;
+    animation-delay: 0.30s;
+    overflow: hidden;
+}
+
+h2.anim span:first-child,
+h3.anim span:first-child
+{
+    animation: 1s translate1  ease forwards;
+    animation-fill-mode: both;
+    animation-delay: 0.45s;
+    display: inline-block;
+}
+
+h2.anim span:last-child,
+h3.anim span:last-child
+{
+    animation: 1s translate1  ease forwards;
+    animation-fill-mode: both;
+    animation-delay: 0.60s;
+    display: inline-block;
+}
+
+//Animation nuages
+@keyframes animationnuages {
+    from { transform: translateX(0) ;  }
+    to { transform: translateX(300px) ; }
+}
+
+.nuages {
+    animation: animationnuages  4s 1 linear forwards;
+}
