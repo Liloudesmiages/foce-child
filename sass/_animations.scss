@@ -61,12 +61,4 @@ h3.anim span:last-child
     display: inline-block;
 }
 
-//Animation nuages
-@keyframes animationnuages {
-    from { transform: translateX(0) ;  }
-    to { transform: translateX(300px) ; }
-}
 
-.nuages {
-    animation: animationnuages  4s 1 linear forwards;
-}

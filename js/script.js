@@ -22,6 +22,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Exécute checkMediaQuery lors du redimensionnement de la fenêtre
   window.addEventListener("resize", checkMediaQuery);
 
+  // Initialise skroll
+  var s = skrollr.init();
+});
+
   //Coverflow-effect parameters.
   const swiper = new Swiper(".swiper", {
     effect: "coverflow",
@@ -49,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     },
   });
-});
 
 // Animations des titres
 const handleIntersectTitles = (entries) => {
@@ -91,20 +94,38 @@ elementsToObserveRotation.forEach((element) => {
   observerRotation.observe(element);
 });
 
-//Animation nuages
+/**Animation nuages
 const handleIntersectPlace = (entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("animationnuages");
     } else {
       entry.target.classList.remove("animationnuages");
-    }
+  }
   });
 };
 
 const observerPlace = new IntersectionObserver(handleIntersectPlace);
 const elementsToObservePlace = document.querySelectorAll(".nuages");
 
-elementsToObserveplace.forEach((element) => {
-  observerplace.observe(element);
+elementsToObservePlace.forEach((element) => {
+  observerPlace.observe(element);
+});*/
+
+//Effet parallaxe nuages
+document.addEventListener('scroll', function() {
+  var scrollPosition = window.scrollY;
+  var nuages = document.querySelector('.nuages');
+  var speed = 0.5; // Vitesse de l'effet de parallaxe
+  nuages.style.transform = 'translateX(300px)'; nuages.style.transform = 'translateX(' + scrollPosition * speed + 'px)';
+});
+
+//Effet parallaxe logo
+document.addEventListener('scroll', function() {
+  var scrollPosition = window.scrollY;
+  var logo = document.querySelector('.logo-header');
+  var parallaxOffset = scrollPosition * 0.5; 
+
+  // Appliquer la transformation parallaxe sans écraser l'animation de flottement
+  logo.style.transform = 'translateY(' + (parallaxOffset - 15) + 'px)'; // -10 pour compenser l'animation initiale
 });

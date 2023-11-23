@@ -1,4 +1,4 @@
-  .banner {
+.banner {
     position: relative;
     background-image: url("../assets/images/banner.png");
     min-height: 806px;
@@ -30,11 +30,6 @@
       height: 100%;
       object-fit: cover; // Cela va couvrir tout l'espace disponible sans étirer la vidéo
     }
-  }
-
-  // Masque la vidéo pour les mobiles par défaut
-  #background-video {
-    display: none;
   }
 
   // Masquer la vidéo pour les mobiles par défaut
@@ -117,8 +112,8 @@
     background-image: url("../assets/images/place_bg.png");
         .nuages {
           position: absolute;
-          top: 5%;
-          left: 30%;
+          top: 0%;
+          left: -25%;
       }
   }
 

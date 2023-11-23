@@ -70,18 +70,6 @@ h3.anim span:last-child {
   display: inline-block;
 }
 
-@keyframes animationnuages {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(300px);
-  }
-}
-.nuages {
-  animation: animationnuages 4s 1 linear forwards;
-}
-
 .banner {
   position: relative;
   background-image: url("../assets/images/banner.png");
@@ -112,10 +100,6 @@ h3.anim span:last-child {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-#background-video {
-  display: none;
 }
 
 @media (max-width: 700px) {
@@ -188,8 +172,8 @@ h3.anim span:last-child {
 }
 .story #place .nuages {
   position: absolute;
-  top: 5%;
-  left: 30%;
+  top: 0%;
+  left: -25%;
 }
 
 /*h3 {
@@ -216,7 +200,7 @@ h3.anim span:last-child {
 }
 
 .main-navigation {
-  position: sticky;
+  position: fixed;
   width: 100%;
   height: 80px;
   background: #FFD5A2;
@@ -224,7 +208,7 @@ h3.anim span:last-child {
   display: block;
 }
 .main-navigation .site-title {
-  font-size: 21.5px;
+  font-size: 2em;
   text-align: center;
   padding-bottom: 5em;
   position: fixed;
@@ -234,6 +218,11 @@ h3.anim span:last-child {
   /* Démarre le titre à 50% du parent */
   transform: translateX(-50%);
   /* Décale le titre de -50% de sa propre largeur */
+}
+@media (max-width: 700px) {
+  .main-navigation .site-title #background-video {
+    display: none;
+  }
 }
 @media screen and (min-width: 700px) {
   .main-navigation .menu-toggle {
@@ -545,7 +534,7 @@ h3.anim span:last-child {
     transform: translateY(0px);
   }
 }
-/* Application de l'animation aux titres */
+/* Application du flottement */
 .logo-header {
   animation: floating 6s ease-in-out 0s infinite;
 }

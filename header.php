@@ -22,7 +22,6 @@
     <?php wp_head(); ?>
 </head>
 <div id="page" class="site">
-    <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'foce'); ?></a>
     <header id="masthead" class="site-header">
         <nav id="site-navigation" class="main-navigation">
             <h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
