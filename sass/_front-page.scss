@@ -1,138 +1,198 @@
+body {
+  width: 100%;
+  margin-right: 0 !important;
+  padding-right: 0;
+}
+
+// Votre code SCSS existant pour les éléments spécifiques
+
 .banner {
-    position: relative;
-    background-image: url("../assets/images/banner.png");
-    min-height: 806px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: -2; // pour que l'image reste en arrière-plan
-  }
+  position: relative;
+  background-image: url("../assets/images/banner.png");
+  min-height: 806px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -2; // pour que l'image reste en arrière-plan
+}
 
-  // Le logo doit être positionné absolument pour le superposer sur la vidéo
-  .logo-header {
-    position: absolute;
-    top: 20%;
-    left: 30%;
-    width: auto;
-    height: auto;
-  }
+// Le logo doit être positionné absolument pour le superposer sur la vidéo
+.logo-header {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  width: auto;
+  height: auto;
+}
 
-  // Styles pour le conteneur vidéo pour s'assurer qu'il remplit la bannière
-  #hero-header {
-    position: absolute;
-    top: 0;
-    left: 0;
+// Styles pour le conteneur vidéo pour s'assurer qu'il remplit la bannière
+#hero-header {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; // pour que la vidéo reste en arrière-plan
+
+  video {
     width: 100%;
     height: 100%;
-    z-index: -1; // pour que la vidéo reste en arrière-plan
+    object-fit: cover; // Cela va couvrir tout l'espace disponible sans étirer la vidéo
+  }
+}
 
-    video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; // Cela va couvrir tout l'espace disponible sans étirer la vidéo
+// Masquer la vidéo pour les mobiles par défaut
+@media (max-width: 700px) {
+  #background-video {
+    display: none;
+  }
+}
+
+// Affiche la vidéo pour les tablettes et les ordinateurs
+@media (min-width: 700px) {
+  #background-video {
+    display: block;
+  }
+}
+
+/* Styles pour la classe .loading-video */
+.loading-video {
+  width: 100%;
+  height: 806px;
+}
+
+.story {
+  margin-top: 80px;
+}
+
+//Respoonsive studio
+@media (max-width: 600px) {
+  .story #characters {
+    h3 {
+      color: orange;
+      background-image: none;
     }
   }
+}
 
-  // Masquer la vidéo pour les mobiles par défaut
-  @media (max-width: 700px) {
-    #background-video {
-      display: none;
+//Respoonsive studio
+@media (max-width: 900px) {
+  #studio {
+    h2 {
+      color: rgb(117, 81, 223);
+      background-image: none;
     }
   }
+}
 
-  // Affiche la vidéo pour les tablettes et les ordinateurs
-  @media (min-width: 700px) {
-    #background-video {
-      display: block;
-    }
+// Maj scss oscars
+#oscars {
+  display: flex;
+  position: relative;
+  margin-top: 5%;
+  background-color: #FFF5E9;
+
+  &::before {
+    content: url('../assets/images/fleurblanche.png');
+    position: absolute;
+    left: 10em;
+    top: -4em;
   }
 
-  /* Styles pour la classe .loading-video */
-  .loading-video {
-    width: 100%;
-    height: 806px;
+  &::after {
+    content: url('../assets/images/orchid.png');
+    position: absolute;
+    right: -4em;
+    top: -9em;
+
   }
 
-  // Maj scss oscars
+  h3 {
+    width: 80%;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    margin-right: 0;
+    margin-left: 4em;
+    padding: 1em 2em;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+    color: #FFF5E9;
+    font-family: Quicksand;
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-image: url("../assets/images/orange_titreoscar_bg.png");
+    background-size: 93%;
+    background-position: center;
+  }
+
+
+  .oscar {
+    width: 20%;
+    height: 50%;
+    background-color: transparent;
+    margin-left: 0;
+    margin-top: 5em;
+    padding-left: 0;
+    margin-right: 15em;
+  }
+}
+
+@media (max-width: 900px) {
   #oscars {
     display: flex;
-    position: relative;
+    flex-direction: column;
     margin-top: 5%;
-    background-color: #FFF5E9;
+    margin-left: 2em;
 
     &::before {
-      content: url('../assets/images/fleurblanche.png');
-      position: absolute;
-      left: 10em;
-      top: -4em;
+      display: none;
     }
 
     &::after {
-      content: url('../assets/images/orchid.png');
-      position: absolute;
-      right: -4em;
-      top: -9em;
-
+      display: none;
     }
 
     h3 {
-      width: 80%;
+      width: 100%;
       margin-top: 1em;
-      margin-bottom: 2em;
-      margin-right: 0;
-      margin-left: 4em;
-      padding: 1em 2em;
-      display: flex;
-      flex-wrap: wrap;
-      text-align: left;
-      color: #FFF5E9;
+      margin-bottom: 1em;
+      margin-left: 0;
+      align-items: center;
+      padding: 0;
+      color: orange;
       font-family: Quicksand;
-      font-size: 3em;
+      font-size: 2em;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      background-image: url("../assets/images/orange_titreoscar_bg.png");
-      background-size: 93%;
-      background-position: center;
+      background-image: none
     }
 
 
     .oscar {
-      width: 20%;
-      height: 50%;
+      width: 100%;
+      height: 100%;
       background-color: transparent;
-      align-items: flex-start;
-      margin-left: 0;
-      margin-top: 5em;
-      padding-left: 0;
-      margin-right: 15em;
       align-items: center;
     }
   }
-
-  .story #place {
-    display: flex;
-    background-image: url("../assets/images/place_bg.png");
-        .nuages {
-          position: absolute;
-          top: 0%;
-          left: -25%;
-      }
-  }
-
-  /*h3 {
-    background-attachment: fixed; 
-    transform: translateY(-110%);
-    transition: transform 1s ease-in-out; 
 }
-   
-    &:hover {
-        transform: translateY(0);
-}
-*/
 
-  //swiper
-  .swiper {
-    width: 100%;
+.story #place {
+  display: flex;
+  background-image: url("../assets/images/place_bg.png");
 
-    .slide {
-      background: #FFF5E9;
-    }
+  .nuages {
+    position: absolute;
+    top: 0%;
+    left: -5%;
   }
+}
+
+//swiper
+.swiper {
+  width: 100%;
+  overflow: hidden;
+
+  .slide {
+    background: #FFF5E9;
+  }
+}

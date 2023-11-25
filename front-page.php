@@ -1,9 +1,10 @@
 <?php
 get_header();
 ?>
+<body class="customize-support">
 <main id="primary" class="site-main">
     <section class="banner">
-    <img class="logo-header" data-0="transform: translateY(0px);" data-500="transform: translateY(100px);" src="<?php echo get_stylesheet_directory_uri(); ?>'/assets/images/logo.png'; ?>" alt="logo Fleurs d'oranger & chats errants">
+    <img class="logo-header" src="<?php echo get_stylesheet_directory_uri(); ?>'/assets/images/logo.png'; ?>" alt="logo Fleurs d'oranger & chats errants">
         <div id="hero-header" class="loading-video">
             <video id="background-video" autoplay loop muted playsinline>
                 <source src="https://course.oc-static.com/projects/D%C3%A9veloppeur+Web/DWP+IW_P9+Studio+d'animation/Studio+Koukaki-vide%CC%81o+header+sans+son+(1).mp4" type="video/mp4">
@@ -54,7 +55,7 @@ get_header();
     <?php get_template_part( 'template-parts/content-oscar' ); ?>
 
 </main><!-- #main -->
-
+</body>
 <?php
 get_footer();
 // ajout?/

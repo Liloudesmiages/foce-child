@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("resize", checkMediaQuery);
 
   // Initialise skroll
-  var s = skrollr.init();
+  //var s = skrollr.init();
 });
 
   //Coverflow-effect parameters.
@@ -94,38 +94,25 @@ elementsToObserveRotation.forEach((element) => {
   observerRotation.observe(element);
 });
 
-/**Animation nuages
-const handleIntersectPlace = (entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("animationnuages");
-    } else {
-      entry.target.classList.remove("animationnuages");
-  }
-  });
-};
-
-const observerPlace = new IntersectionObserver(handleIntersectPlace);
-const elementsToObservePlace = document.querySelectorAll(".nuages");
-
-elementsToObservePlace.forEach((element) => {
-  observerPlace.observe(element);
-});*/
-
 //Effet parallaxe nuages
 document.addEventListener('scroll', function() {
   var scrollPosition = window.scrollY;
   var nuages = document.querySelector('.nuages');
   var speed = 0.5; // Vitesse de l'effet de parallaxe
-  nuages.style.transform = 'translateX(300px)'; nuages.style.transform = 'translateX(' + scrollPosition * speed + 'px)';
+
+  // Calcule la largeur disponible avant que les nuages ne sortent de la page
+  var maxWidth = window.innerWidth - nuages.offsetWidth;
+
+  // Calcule la valeur de translation
+  var translateValue = scrollPosition * speed;
+
+  // Pour que les nuages ne sortent pas de la page
+  if (translateValue > maxWidth) {
+    translateValue = maxWidth;
+  }
+  nuages.style.transform = 'translateX(' + translateValue + 'px)';
 });
 
-//Effet parallaxe logo
-document.addEventListener('scroll', function() {
-  var scrollPosition = window.scrollY;
-  var logo = document.querySelector('.logo-header');
-  var parallaxOffset = scrollPosition * 0.5; 
 
-  // Appliquer la transformation parallaxe sans écraser l'animation de flottement
-  logo.style.transform = 'translateY(' + (parallaxOffset - 15) + 'px)'; // -10 pour compenser l'animation initiale
-});
+
+  

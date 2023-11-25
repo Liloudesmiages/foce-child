@@ -70,6 +70,12 @@ h3.anim span:last-child {
   display: inline-block;
 }
 
+body {
+  width: 100%;
+  margin-right: 0 !important;
+  padding-right: 0;
+}
+
 .banner {
   position: relative;
   background-image: url("../assets/images/banner.png");
@@ -81,7 +87,7 @@ h3.anim span:last-child {
 
 .logo-header {
   position: absolute;
-  top: 20%;
+  top: 30%;
   left: 30%;
   width: auto;
   height: auto;
@@ -89,7 +95,7 @@ h3.anim span:last-child {
 
 #hero-header {
   position: absolute;
-  top: 0;
+  top: 80px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -118,6 +124,22 @@ h3.anim span:last-child {
   height: 806px;
 }
 
+.story {
+  margin-top: 80px;
+}
+
+@media (max-width: 600px) {
+  .story #characters h3 {
+    color: orange;
+    background-image: none;
+  }
+}
+@media (max-width: 900px) {
+  #studio h2 {
+    color: rgb(117, 81, 223);
+    background-image: none;
+  }
+}
 #oscars {
   display: flex;
   position: relative;
@@ -158,14 +180,45 @@ h3.anim span:last-child {
   width: 20%;
   height: 50%;
   background-color: transparent;
-  align-items: flex-start;
   margin-left: 0;
   margin-top: 5em;
   padding-left: 0;
   margin-right: 15em;
-  align-items: center;
 }
 
+@media (max-width: 900px) {
+  #oscars {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    margin-left: 2em;
+  }
+  #oscars::before {
+    display: none;
+  }
+  #oscars::after {
+    display: none;
+  }
+  #oscars h3 {
+    width: 100%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    align-items: center;
+    padding: 0;
+    color: orange;
+    font-family: Quicksand;
+    font-size: 2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-image: none;
+  }
+  #oscars .oscar {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    align-items: center;
+  }
+}
 .story #place {
   display: flex;
   background-image: url("../assets/images/place_bg.png");
@@ -173,21 +226,12 @@ h3.anim span:last-child {
 .story #place .nuages {
   position: absolute;
   top: 0%;
-  left: -25%;
+  left: -5%;
 }
 
-/*h3 {
-    background-attachment: fixed; 
-    transform: translateY(-110%);
-    transition: transform 1s ease-in-out; 
-}
-
-    &:hover {
-        transform: translateY(0);
-}
-*/
 .swiper {
   width: 100%;
+  overflow: hidden;
 }
 .swiper .slide {
   background: #FFF5E9;
@@ -205,33 +249,34 @@ h3.anim span:last-child {
   height: 80px;
   background: #FFD5A2;
   z-index: 1000 !important;
-  display: block;
 }
 .main-navigation .site-title {
   font-size: 2em;
   text-align: center;
-  padding-bottom: 5em;
   position: fixed;
-  /* Positionne absolument le titre */
   z-index: 11;
-  left: 50%;
-  /* Démarre le titre à 50% du parent */
-  transform: translateX(-50%);
-  /* Décale le titre de -50% de sa propre largeur */
+  margin-left: 40%;
 }
-@media (max-width: 700px) {
-  .main-navigation .site-title #background-video {
-    display: none;
+@media (min-width: 600px) and (max-width: 900px) {
+  .main-navigation h1.site-title {
+    margin-top: 0;
+    font-size: 2em;
+    margin-left: 2%;
   }
 }
-@media screen and (min-width: 700px) {
-  .main-navigation .menu-toggle {
-    display: block !important;
+@media (max-width: 600px) {
+  .main-navigation h1.site-title {
+    margin-top: 2%;
+    font-size: 1.25em;
+    margin-left: 2%;
+    margin-right: 30%;
   }
 }
 .main-navigation .menu-toggle {
+  display: block !important;
+}
+.main-navigation .menu-toggle {
   cursor: pointer;
-  /* Indique que le bouton est cliquable */
   margin-right: 8%;
   z-index: 11;
   /* Lignes du bouton hamburger */
@@ -245,6 +290,7 @@ h3.anim span:last-child {
 }
 .main-navigation .menu-toggle.menu-opened {
   z-index: 11;
+  margin-right: 8%;
 }
 .main-navigation .menu-toggle.menu-opened:before, .main-navigation .menu-toggle.menu-opened:after {
   position: absolute;
@@ -272,6 +318,7 @@ h3.anim span:last-child {
 #menu-content {
   display: none;
   position: fixed;
+  margin-top: 38px;
   width: 100%;
   height: 100%;
   background: #FFF5E9;
@@ -534,11 +581,8 @@ h3.anim span:last-child {
     transform: translateY(0px);
   }
 }
-/* Application du flottement */
-.logo-header {
-  animation: floating 6s ease-in-out 0s infinite;
-}
-
+/* Application du flottement 
+*/
 .chat-noir {
   animation: floating 6s ease-in-out 0s infinite;
 }
